@@ -44,10 +44,10 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/mizushima/osananajimi"
-Documentation = "https://mizushima.github.io/osananajimi"
-Repository = "https://github.com/mizushima/osananajimi.git"
-Issues = "https://github.com/mizushima/osananajimi/issues"
+Homepage = "https://github.com/kmizu/osananajimi"
+Documentation = "https://kmizu.github.io/osananajimi"
+Repository = "https://github.com/kmizu/osananajimi.git"
+Issues = "https://github.com/kmizu/osananajimi/issues"
 
 [project.scripts]
 osananajimi-serve = "osananajimi.cli:serve"

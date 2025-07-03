@@ -26,7 +26,7 @@
 
 ```bash
 # リポジトリをクローン
-git clone https://github.com/mizushima/osananajimi.git
+git clone https://github.com/kmizu/osananajimi.git
 cd osananajimi
 
 # 依存関係をインストール
@@ -191,8 +191,8 @@ MIT License - 詳細は [LICENSE](LICENSE) ファイルを参照
 
 ## 📞 サポート
 
-- Issues: [GitHub Issues](https://github.com/mizushima/osananajimi/issues)
-- Documentation: [プロジェクトサイト](https://mizushima.github.io/osananajimi/)
+- Issues: [GitHub Issues](https://github.com/kmizu/osananajimi/issues)
+- Documentation: [プロジェクトサイト](https://kmizu.github.io/osananajimi/)
 
 ---
 
