@@ -1,0 +1,113 @@
+site_name: 隣の恋文
+site_description: 京都中京区を舞台とした学園ラブコメ小説
+site_author: 久野真一
+site_url: https://mizushima.github.io/osananajimi
+repo_url: https://github.com/mizushima/osananajimi
+repo_name: GitHub
+
+theme:
+  name: material
+  language: ja
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.indexes
+    - toc.integrate
+    - search.suggest
+    - search.highlight
+  palette:
+    - scheme: default
+      primary: pink
+      accent: pink
+      toggle:
+        icon: material/weather-night
+        name: ダークモードに切り替え
+    - scheme: slate
+      primary: pink
+      accent: pink
+      toggle:
+        icon: material/weather-sunny
+        name: ライトモードに切り替え
+
+nav:
+  - ホーム: index.md
+  - 第1巻:
+    - volume1/index.md
+    - 第1章 春の始まり:
+      - 第1話 新しい季節: volume1/chapter01.md
+      - 第2話 図書館での再会: volume1/chapter02.md
+      - 第3話 プログラミング部の誘い: volume1/chapter03.md
+      - 第4話 放課後の約束: volume1/chapter04.md
+      - 第5話 桜舞う学校: volume1/chapter05.md
+    - 第2章 日常の中で:
+      - 第6話 一緒の帰り道: volume1/chapter06.md
+      - 第7話 勉強会: volume1/chapter07.md
+      - 第8話 京都の街角: volume1/chapter08.md
+      - 第9話 アルゴリズムの話: volume1/chapter09.md
+      - 第10話 部活の仲間たち: volume1/chapter10.md
+    - 第3章 気づき始める想い:
+      - 第11話 文化祭の準備: volume1/chapter11.md
+      - 第12話 プロジェクトのパートナー: volume1/chapter12.md
+      - 第13話 夕暮れの屋上: volume1/chapter13.md
+      - 第14話 小さな変化: volume1/chapter14.md
+      - 第15話 心の距離: volume1/chapter15.md
+    - 第4章 文化祭:
+      - 第16話 文化祭前夜: volume1/chapter16.md
+      - 第17話 展示発表: volume1/chapter17.md
+      - 第18話 浴衣姿の君: volume1/chapter18.md
+      - 第19話 夜店の思い出: volume1/chapter19.md
+      - 第20話 花火の下で: volume1/chapter20.md
+    - 第5章 夏の終わり:
+      - 第21話 すれ違いの始まり: volume1/chapter21.md
+      - 第22話 誤解: volume1/chapter22.md
+      - 第23話 一人の時間: volume1/chapter23.md
+      - 第24話 友達の助言: volume1/chapter24.md
+      - 第25話 決意: volume1/chapter25.md
+    - 第6章 心を繋ぐ:
+      - 第26話 素直な気持ち: volume1/chapter26.md
+      - 第27話 京都の夕景: volume1/chapter27.md
+      - 第28話 告白の準備: volume1/chapter28.md
+      - 第29話 二人だけの時間: volume1/chapter29.md
+      - 第30話 恋の告白: volume1/chapter30.md
+
+plugins:
+  - search:
+      lang: ja
+  - awesome-pages
+
+markdown_extensions:
+  - admonition
+  - codehilite
+  - footnotes
+  - meta
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/
+
+copyright: Copyright &copy; 2025 久野真一

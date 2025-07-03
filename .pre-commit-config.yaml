@@ -1,0 +1,58 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-toml
+      - id: check-json
+      - id: check-added-large-files
+      - id: check-merge-conflict
+      - id: debug-statements
+
+  - repo: https://github.com/psf/black
+    rev: 23.9.1
+    hooks:
+      - id: black
+        language_version: python3
+        args: [--line-length=88]
+
+  - repo: https://github.com/pycqa/isort
+    rev: 5.12.0
+    hooks:
+      - id: isort
+        args: [--profile=black, --line-length=88]
+
+  - repo: https://github.com/pycqa/flake8
+    rev: 6.1.0
+    hooks:
+      - id: flake8
+        args: [--max-line-length=88, --extend-ignore=E203,W503]
+
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.5.1
+    hooks:
+      - id: mypy
+        additional_dependencies: [types-click]
+        args: [--ignore-missing-imports]
+
+  - repo: local
+    hooks:
+      - id: novel-validation
+        name: 小説構成チェック
+        entry: python
+        language: system
+        args: [-c, "from src.osananajimi.utils import validate_chapter_structure; from pathlib import Path; issues = validate_chapter_structure(Path.cwd()); print('\n'.join(issues)); exit(1 if any('❌' in issue for issue in issues) else 0)"]
+        files: docs/.*\.md$
+        pass_filenames: false
+
+  - repo: local
+    hooks:
+      - id: mkdocs-build
+        name: MkDocsビルドテスト
+        entry: mkdocs
+        language: system
+        args: [build, --strict]
+        files: (mkdocs\.yml|docs/.*)
+        pass_filenames: false
