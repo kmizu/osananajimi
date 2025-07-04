@@ -1541,85 +1541,137 @@
 
 
 <h1 id="7">第7話　勉強会<a class="headerlink" href="#7" title="Permanent link">&para;</a></h1>
-<p>水曜日の放課後、僕は美月の家にいた。
-　今日は美月が数学で困っているということで、勉強を教えることになったのだ。</p>
+<p>水曜日の放課後、僕は美月の家にいた。今日は美月が数学で困っているということで、勉強を教えることになったのだ。バッグには、三角関数を視覚化するためのPythonプログラムを入れたThinkPadも持ってきた。アルゴリズムと数学の繋がりを見せれば、美月の理解の助けになるかもしれない。</p>
 <p>「失礼します」</p>
-<p>美月の部屋に入るのは久しぶりだった。
-　小学生の頃は時々遊びに来ていたけれど、中学に入ってからはほとんど来ていない。</p>
+<p>美月の部屋に入るのは久しぶりだった。小学生の頃は時々遊びに来ていたけれど、中学に入ってからはほとんど来ていない。久しぶりに入る美月の部屋に、心拍数が上がるのを感じた。</p>
 <p>「どうぞ、座ってください」</p>
-<p>美月の部屋は、白を基調とした清潔感のある部屋だった。
-　本棚には小説や詩集がぎっしりと並んでいる。</p>
-<p>「相変わらず本がたくさんあるね」</p>
-<p>「読書が好きなので。最近は詩にも興味があって」</p>
-<p>美月は少し恥ずかしそうに答えた。</p>
-<p>「金曜日の朗読会も楽しみだね」</p>
-<p>「ありがとうございます。でも、緊張してしまいます」</p>
-<p>「大丈夫だよ。美月の朗読、きっと素敵だと思う」</p>
+<p>美月の部屋は、白を基調とした清潔感のある部屋だった。本棚には小説や詩集がぎっしりと並んでいる。机の上には整理された教科書とノート、そして可愛いペン立て。窓からは夕方の光が差し込んでいて、部屋全体が温かい雰囲気に包まれている。</p>
+<p>「相変わらず本がたくさんあるね。あ、『アルゴリズムの心』もある」</p>
+<p>「読書が好きなので。最近は詩にも興味があって。あ、その本は拓海先輩が以前お勧めしてくださったものですね」</p>
+<p>「読んでくれたんだ」</p>
+<p>「はい。プログラミングの基礎的な考え方が書かれていて、とても面白かったです」</p>
+<p>美月は少し恥ずかしそうに答えた。僕が勧めた本を読んでくれていたことが、とても嬉しかった。</p>
+<p>「金曜日の朗読会も楽しみだね。『女生徒』、僕も好きな作品だよ」</p>
+<p>「ありがとうございます。でも、緊張してしまいます。人前で読むのは、プログラミングの発表とは違う難しさがありますから」</p>
+<p>「大丈夫だよ。美月の朗読、きっと素敵だと思う。僕もプログラミングの発表ではいつも緊張するけど、何度もやるうちに慣れてきたから」</p>
 <p>僕がそう言うと、美月は少し安心したような顔をした。</p>
 <p>「それでは、数学を始めましょうか」</p>
 <p>「はい、お願いします」</p>
-<p>美月は机の上に数学の教科書とノートを広げた。
-　今日の範囲は三角関数の基本だった。</p>
-<p>「三角関数は確かに難しいよね」</p>
-<p>「はい。sin、cos、tanの関係がよく分からなくて」</p>
-<p>「まず、三角関数の定義から確認してみよう」</p>
-<p>僕は美月のノートに図を描きながら説明した。
-　美月は真剣に聞いてくれる。</p>
+<p>美月は机の上に数学の教科書とノートを広げた。今日の範囲は三角関数の基本だった。</p>
+<p>「三角関数は確かに難しいよね。でも、実はプログラミングでもよく使うんだ」</p>
+<p>「そうなんですか？」</p>
+<p>「うん。ゲームのキャラクターの動きや、音波の波形、アニメーションの動きも三角関数で表現できる」</p>
+<p>「なるほど。でも、sin、cos、tanの関係がよく分からなくて」</p>
+<p>「まず、三角関数の定義から確認してみよう。それから、Pythonで実際に動かして見せるね」</p>
+<p>僕は美月のノートに図を描きながら説明した。円の中に直角三角形を描いて、各辺の比を示す。美月は真剣に聞いてくれる。</p>
 <p>「なるほど。直角三角形の辺の比なんですね」</p>
-<p>「そういうこと。理解が早いね」</p>
-<p>「拓海先輩の説明が分かりやすいからです」</p>
-<p>美月にそう言われて、僕は少し照れた。</p>
-<p>一時間ほど勉強を続けていると、美月のお母さんがお茶を持ってきてくれた。</p>
-<p>「お疲れ様。お茶をどうぞ」</p>
+<p>「そういうこと。理解が早いね。じゃあ、ちょっとプログラムで見てみようか」</p>
+<p>僕はThinkPadを取り出して、Pythonを起動した。</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.family&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;MS Gothic&#39;</span>  <span class="c1"># 日本語フォント</span>
+
+<span class="c1"># 角度を生成（0から360度）</span>
+<span class="n">angles</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+
+<span class="c1"># sin, cos, tanの値を計算</span>
+<span class="n">sin_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angles</span><span class="p">)</span>
+<span class="n">cos_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">angles</span><span class="p">)</span>
+
+<span class="c1"># グラフを描画</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">angles</span><span class="p">,</span> <span class="n">sin_values</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;sinθ&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">angles</span><span class="p">,</span> <span class="n">cos_values</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;cosθ&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;角度 (ラジアン)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;値&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;三角関数のグラフ&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<p>「わあ、きれいな波形ですね」</p>
+<p>「でしょう？これが三角関数の動き。sinとcosは90度ずれた同じ波形なんだ」</p>
+<p>「拓海先輩の説明が分かりやすいからです。視覚的に見ると理解しやすいですね」</p>
+<p>美月にそう言われて、僕は少し照れた。美月の理解力の高さに、いつも驚かされる。</p>
+<p>一時間ほど勉強を続けていると、美月のお母さんがお茶を持ってきてくれた。お盆には、手作りのどら焼きも添えられている。</p>
+<p>「お疲れ様。お茶をどうぞ。今日は新しい配合で作ったどら焼きよ」</p>
 <p>「ありがとうございます」</p>
-<p>「拓海くん、美月の勉強を見てくれてありがとうね」</p>
-<p>「いえ、僕も勉強になります」</p>
-<p>「謙遜しちゃって。美月、拓海くんに甘えちゃダメよ」</p>
-<p>「分かってます、お母さん」</p>
-<p>美月は少し恥ずかしそうに答えた。</p>
+<p>「拓海くん、美月の勉強を見てくれてありがとうね。IOIの準備も大変でしょうに」</p>
+<p>「いえ、僕も勉強になります。教えることで、自分の理解も深まりますから」</p>
+<p>「謙遜しちゃって。でも、拓海くんが教えてくれると、美月も安心みたいよ。最近、数学の成績も上がってきたし」</p>
+<p>「お母さん、もう」</p>
+<p>美月は少し恥ずかしそうに答えた。その様子が可愛くて、僕は思わず微笑んでしまった。</p>
 <p>お母さんが部屋を出ていくと、僕たちは再び勉強に戻った。</p>
-<p>「練習問題も解いてみる？」</p>
-<p>「はい」</p>
-<p>美月は集中して問題に取り組んだ。
-　分からないところがあると、素直に質問してくれる。</p>
-<p>「ここがよく分からないんです」</p>
-<p>「ああ、この部分ね。三角関数の公式を使うんだ」</p>
-<p>僕は美月の隣に座って、一緒にノートを見ながら説明した。
-　美月の髪からいい匂いがして、少しドキドキした。</p>
-<p>「あ、分かりました」</p>
-<p>「よかった。美月は飲み込みが早いね」</p>
-<p>「ありがとうございます」</p>
-<p>勉強が終わって、僕たちは少し雑談をした。</p>
+<p>「練習問題も解いてみる？でもその前に、公式の記憶方法を教えるね」</p>
+<p>僕はノートに図を描き始めた。</p>
+<p>「三角関数の公式は、実はパターンがあるんだ。プログラミングでいうデザインパターンみたいにね」</p>
+<p>「デザインパターンですか？」</p>
+<p>「うん。例えば、sin(α+β) = sinαcosβ + cosαsinβ って公式があるでしょ？これは対称性があって、美しいパターンなんだ」</p>
+<p>「なるほど。確かに綺麗な形ですね」</p>
+<p>美月は集中して問題に取り組んだ。分からないところがあると、素直に質問してくれる。</p>
+<p>「ここがよく分からないんです。tanの加法定理の部分」</p>
+<p>「ああ、この部分ね。これもパターンがあるんだ。ちょっとプログラムで確認してみよう」</p>
+<p>僕は美月の隣に座って、一緒にノートを見ながら説明した。美月の髪からシャンプーのいい匂いがして、少しドキドキした。近すぎる距離だけど、勉強に集中しなければ。</p>
+<p>「あ、分かりました！tan(α+β) = (tanα + tanβ) / (1 - tanα×tanβ) ですね」</p>
+<p>「その通り！よかった。美月は飲み込みが早いね。この公式も、実はプログラミングで使うベクトルの回転と関係があるんだ」</p>
+<p>「へー、数学とプログラミングって本当に繋がっているんですね」</p>
+<p>「うん。だから、両方できると楽しいんだよ」</p>
+<p>勉強が終わって、僕たちは少し雑談をした。窓から入る夕日が、美月の部屋をオレンジ色に染めている。</p>
 <p>「そういえば、プログラミング部の入部届はいつ出す？」</p>
 <p>「明日、出そうと思います」</p>
-<p>「楽しみだな。みんなも歓迎してくれるよ」</p>
-<p>「ちょっと緊張しますが、頑張ります」</p>
-<p>美月は決意を込めて答えた。</p>
-<p>「何か分からないことがあったら、遠慮しないで聞いてね」</p>
-<p>「はい。よろしくお願いします」</p>
+<p>「楽しみだな。みんなも歓迎してくれるよ。特に山田先輩は、女子部員が増えるのを喜んでたから」</p>
+<p>「ちょっと緊張しますが、頑張ります。でも、みなさんのIOIの準備の邪魔にならないでしょうか？」</p>
+<p>「全然大丈夫。むしろ、初心者に教えることで、僕たちも基礎を見直せるから」</p>
+<p>美月は決意を込めて答えた。その真剣な表情が、とても美しく見えた。</p>
+<p>「何か分からないことがあったら、遠慮しないで聞いてね。プログラミングでも数学でも」</p>
+<p>「はい。よろしくお願いします。あの、明日は何時頃にコンピュータ室に行けばいいですか？」</p>
+<p>「放課後すぐでいいよ。僕が待ってるから」</p>
+<p>「分かりました。楽しみです」</p>
 <p>夕方になって、僕は美月の家を出ることにした。</p>
-<p>「今日はありがとうございました」</p>
-<p>玄関で、美月は深々とお辞儀をした。</p>
-<p>「どういたしまして。また分からないことがあったら言って」</p>
-<p>「はい」</p>
+<p>「今日はありがとうございました。三角関数がすごく分かりやすくなりました」</p>
+<p>玄関で、美月は深々とお辞儀をした。その仕草が丁寧で、美月らしい。</p>
+<p>「どういたしまして。また分からないことがあったら言って。LINEでもいいから」</p>
+<p>「はい。あの、今日教えていただいたPythonのプログラム、後で送っていただけますか？」</p>
+<p>「もちろん。帰ったらすぐ送るよ」</p>
 <p>「それじゃあ、また明日」</p>
 <p>「また明日。お疲れ様でした」</p>
-<p>美月の家を出て、僕は自分の家に向かった。
-　隣の家だから、本当にすぐだ。</p>
-<p>今日は美月の部屋で勉強を教えた。
-　美月の真剣な表情、分からないことを素直に聞いてくれる姿勢、理解した時の嬉しそうな顔。
-　どれも印象に残っている。</p>
-<p>それに、美月の部屋にいると、なんだか特別な感じがした。
-　美月のプライベートな空間に入れてもらえたような。</p>
-<p>部屋に戻って、僕は今日の出来事を振り返っていた。
-　美月がプログラミング部に入ってくれることも嬉しい。
-　これからもっと一緒にいる時間が増える。</p>
-<p>でも、それ以上に、美月が僕のことを頼りにしてくれていることが嬉しかった。
-　幼馴染として、先輩として、美月の力になりたい。</p>
-<p>窓の外を見ると、美月の部屋の明かりが見えた。
-　きっと今頃、今日習った数学の復習をしているのだろう。</p>
-<p>明日から、美月もプログラミング部の仲間だ。
-　どんなことを一緒にできるか、今から楽しみだった。</p>
+<p>美月の家を出て、僕は自分の家に向かった。隣の家だから、本当にすぐだ。でも、この短い距離が、今日はやけに寂しく感じる。</p>
+<p>今日は美月の部屋で勉強を教えた。美月の真剣な表情、分からないことを素直に聞いてくれる姿勢、理解した時の嬉しそうな顔。どれも印象に残っている。</p>
+<p>それに、美月の部屋にいると、なんだか特別な感じがした。美月のプライベートな空間に入れてもらえたような。本棚に並んだ本、机の上のペン立て、窓から入る光。全てが美月らしくて、温かかった。</p>
+<p>部屋に戻って、僕はThinkPadを開いた。約束通り、美月にPythonのプログラムを送る。それから、明日の部活見学のために、初心者向けの課題を準備し始めた。</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 美月さん向け：花の模様を描くプログラム</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">turtle</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">draw_flower</span><span class="p">(</span><span class="n">petals</span><span class="p">,</span> <span class="n">radius</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;petals: 花びらの数、radius: 花びらの半径&quot;&quot;&quot;</span>
+    <span class="n">angle</span> <span class="o">=</span> <span class="mi">360</span> <span class="o">/</span> <span class="n">petals</span>
+
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">petals</span><span class="p">):</span>
+        <span class="c1"># 一つの花びらを描く</span>
+        <span class="n">turtle</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="n">radius</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span>
+        <span class="n">turtle</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">120</span><span class="p">)</span>
+        <span class="n">turtle</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="n">radius</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span>
+        <span class="n">turtle</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">120</span><span class="p">)</span>
+
+        <span class="c1"># 次の花びらの位置へ</span>
+        <span class="n">turtle</span><span class="o">.</span><span class="n">right</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span>
+
+<span class="c1"># 使い方</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">speed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="s1">&#39;pink&#39;</span><span class="p">)</span>
+<span class="n">draw_flower</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">done</span><span class="p">()</span>
+</code></pre></div>
+<p>コメントを丁寧に書きながら、美月が理解しやすいように工夫する。プログラミングの楽しさを伝えたい。</p>
+<p>美月がプログラミング部に入ってくれることも嬉しい。これからもっと一緒にいる時間が増える。でも、それ以上に、美月が僕のことを頼りにしてくれていることが嬉しかった。幼馴染として、先輩として、美月の力になりたい。</p>
+<p>窓の外を見ると、美月の部屋の明かりが見えた。きっと今頃、今日習った三角関数の復習をしているのだろう。真面目な美月のことだから、きちんとノートをまとめ直しているに違いない。</p>
+<p>明日から、美月もプログラミング部の仲間だ。どんなことを一緒にできるか、今から楽しみだった。でもそれと同時に、少し緊張もしている。美月にとって、プログラミング部が楽しい場所になるように、僕も頑張らなければ。</p>
+<p>LINEの通知が鳴った。美月からだった。</p>
+<p>「プログラム、ありがとうございます！早速動かしてみました。とてもきれいです！」</p>
+<p>そのメッセージを見て、僕は思わず笑顔になった。</p>
 
 
 
