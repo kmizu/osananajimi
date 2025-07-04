@@ -1541,137 +1541,96 @@
 
 
 <h1 id="7">第7話　勉強会<a class="headerlink" href="#7" title="Permanent link">&para;</a></h1>
-<p>水曜日の放課後、僕は美月の家にいた。今日は美月が数学で困っているということで、勉強を教えることになったのだ。バッグには、三角関数を視覚化するためのPythonプログラムを入れたThinkPadも持ってきた。アルゴリズムと数学の繋がりを見せれば、美月の理解の助けになるかもしれない。</p>
-<p>「失礼します」</p>
-<p>美月の部屋に入るのは久しぶりだった。小学生の頃は時々遊びに来ていたけれど、中学に入ってからはほとんど来ていない。久しぶりに入る美月の部屋に、心拍数が上がるのを感じた。</p>
-<p>「どうぞ、座ってください」</p>
-<p>美月の部屋は、白を基調とした清潔感のある部屋だった。本棚には小説や詩集がぎっしりと並んでいる。机の上には整理された教科書とノート、そして可愛いペン立て。窓からは夕方の光が差し込んでいて、部屋全体が温かい雰囲気に包まれている。</p>
-<p>「相変わらず本がたくさんあるね。あ、『アルゴリズムの心』もある」</p>
-<p>「読書が好きなので。最近は詩にも興味があって。あ、その本は拓海先輩が以前お勧めしてくださったものですね」</p>
-<p>「読んでくれたんだ」</p>
-<p>「はい。プログラミングの基礎的な考え方が書かれていて、とても面白かったです」</p>
-<p>美月は少し恥ずかしそうに答えた。僕が勧めた本を読んでくれていたことが、とても嬉しかった。</p>
-<p>「金曜日の朗読会も楽しみだね。『女生徒』、僕も好きな作品だよ」</p>
-<p>「ありがとうございます。でも、緊張してしまいます。人前で読むのは、プログラミングの発表とは違う難しさがありますから」</p>
-<p>「大丈夫だよ。美月の朗読、きっと素敵だと思う。僕もプログラミングの発表ではいつも緊張するけど、何度もやるうちに慣れてきたから」</p>
-<p>僕がそう言うと、美月は少し安心したような顔をした。</p>
-<p>「それでは、数学を始めましょうか」</p>
-<p>「はい、お願いします」</p>
-<p>美月は机の上に数学の教科書とノートを広げた。今日の範囲は三角関数の基本だった。</p>
-<p>「三角関数は確かに難しいよね。でも、実はプログラミングでもよく使うんだ」</p>
-<p>「そうなんですか？」</p>
-<p>「うん。ゲームのキャラクターの動きや、音波の波形、アニメーションの動きも三角関数で表現できる」</p>
-<p>「なるほど。でも、sin、cos、tanの関係がよく分からなくて」</p>
-<p>「まず、三角関数の定義から確認してみよう。それから、Pythonで実際に動かして見せるね」</p>
-<p>僕は美月のノートに図を描きながら説明した。円の中に直角三角形を描いて、各辺の比を示す。美月は真剣に聞いてくれる。</p>
-<p>「なるほど。直角三角形の辺の比なんですね」</p>
-<p>「そういうこと。理解が早いね。じゃあ、ちょっとプログラムで見てみようか」</p>
-<p>僕はThinkPadを取り出して、Pythonを起動した。</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span>
-<span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.family&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;MS Gothic&#39;</span>  <span class="c1"># 日本語フォント</span>
-
-<span class="c1"># 角度を生成（0から360度）</span>
-<span class="n">angles</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
-
-<span class="c1"># sin, cos, tanの値を計算</span>
-<span class="n">sin_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angles</span><span class="p">)</span>
-<span class="n">cos_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">angles</span><span class="p">)</span>
-
-<span class="c1"># グラフを描画</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">angles</span><span class="p">,</span> <span class="n">sin_values</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;sinθ&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">angles</span><span class="p">,</span> <span class="n">cos_values</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;cosθ&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;角度 (ラジアン)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;値&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;三角関数のグラフ&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<p>水曜日の放課後、僕は美月と図書館にいた。文化祭の展示開発を本格的に始める前に、技術的な部分を整理しておきたかった。</p>
+<p>「今日はRustの基礎から？」</p>
+<p>「うん。所有権の概念が分かれば、あとは応用だから」</p>
+<p>僕たちは奥の静かな席に座って、ノートPCを開いた。</p>
+<p>「まず、Rustが解決したい問題から説明するね」</p>
+<p>ホワイトボードに図を描きながら説明を始める。</p>
+<p>「メモリ安全性の問題。CやC++では、メモリの解放忘れとか、二重解放とか」</p>
+<p>「セグフォの原因ですね」</p>
+<p>「そう。Rustはコンパイル時にこれらを防ぐ」</p>
+<p>美月は真剣にメモを取っている。</p>
+<div class="highlight"><pre><span></span><code><span class="k">fn</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">String</span><span class="p">::</span><span class="n">from</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s1</span><span class="p">;</span><span class="w">  </span><span class="c1">// 所有権がs2に移動</span>
+<span class="w">    </span><span class="c1">// println!(&quot;{}&quot;, s1);  // コンパイルエラー</span>
+<span class="p">}</span>
 </code></pre></div>
-<p>「わあ、きれいな波形ですね」</p>
-<p>「でしょう？これが三角関数の動き。sinとcosは90度ずれた同じ波形なんだ」</p>
-<p>「拓海先輩の説明が分かりやすいからです。視覚的に見ると理解しやすいですね」</p>
-<p>美月にそう言われて、僕は少し照れた。美月の理解力の高さに、いつも驚かされる。</p>
-<p>一時間ほど勉強を続けていると、美月のお母さんがお茶を持ってきてくれた。お盆には、手作りのどら焼きも添えられている。</p>
-<p>「お疲れ様。お茶をどうぞ。今日は新しい配合で作ったどら焼きよ」</p>
-<p>「ありがとうございます」</p>
-<p>「拓海くん、美月の勉強を見てくれてありがとうね。IOIの準備も大変でしょうに」</p>
-<p>「いえ、僕も勉強になります。教えることで、自分の理解も深まりますから」</p>
-<p>「謙遜しちゃって。でも、拓海くんが教えてくれると、美月も安心みたいよ。最近、数学の成績も上がってきたし」</p>
-<p>「お母さん、もう」</p>
-<p>美月は少し恥ずかしそうに答えた。その様子が可愛くて、僕は思わず微笑んでしまった。</p>
-<p>お母さんが部屋を出ていくと、僕たちは再び勉強に戻った。</p>
-<p>「練習問題も解いてみる？でもその前に、公式の記憶方法を教えるね」</p>
-<p>僕はノートに図を描き始めた。</p>
-<p>「三角関数の公式は、実はパターンがあるんだ。プログラミングでいうデザインパターンみたいにね」</p>
-<p>「デザインパターンですか？」</p>
-<p>「うん。例えば、sin(α+β) = sinαcosβ + cosαsinβ って公式があるでしょ？これは対称性があって、美しいパターンなんだ」</p>
-<p>「なるほど。確かに綺麗な形ですね」</p>
-<p>美月は集中して問題に取り組んだ。分からないところがあると、素直に質問してくれる。</p>
-<p>「ここがよく分からないんです。tanの加法定理の部分」</p>
-<p>「ああ、この部分ね。これもパターンがあるんだ。ちょっとプログラムで確認してみよう」</p>
-<p>僕は美月の隣に座って、一緒にノートを見ながら説明した。美月の髪からシャンプーのいい匂いがして、少しドキドキした。近すぎる距離だけど、勉強に集中しなければ。</p>
-<p>「あ、分かりました！tan(α+β) = (tanα + tanβ) / (1 - tanα×tanβ) ですね」</p>
-<p>「その通り！よかった。美月は飲み込みが早いね。この公式も、実はプログラミングで使うベクトルの回転と関係があるんだ」</p>
-<p>「へー、数学とプログラミングって本当に繋がっているんですね」</p>
-<p>「うん。だから、両方できると楽しいんだよ」</p>
-<p>勉強が終わって、僕たちは少し雑談をした。窓から入る夕日が、美月の部屋をオレンジ色に染めている。</p>
-<p>「そういえば、プログラミング部の入部届はいつ出す？」</p>
-<p>「明日、出そうと思います」</p>
-<p>「楽しみだな。みんなも歓迎してくれるよ。特に山田先輩は、女子部員が増えるのを喜んでたから」</p>
-<p>「ちょっと緊張しますが、頑張ります。でも、みなさんのIOIの準備の邪魔にならないでしょうか？」</p>
-<p>「全然大丈夫。むしろ、初心者に教えることで、僕たちも基礎を見直せるから」</p>
-<p>美月は決意を込めて答えた。その真剣な表情が、とても美しく見えた。</p>
-<p>「何か分からないことがあったら、遠慮しないで聞いてね。プログラミングでも数学でも」</p>
-<p>「はい。よろしくお願いします。あの、明日は何時頃にコンピュータ室に行けばいいですか？」</p>
-<p>「放課後すぐでいいよ。僕が待ってるから」</p>
-<p>「分かりました。楽しみです」</p>
-<p>夕方になって、僕は美月の家を出ることにした。</p>
-<p>「今日はありがとうございました。三角関数がすごく分かりやすくなりました」</p>
-<p>玄関で、美月は深々とお辞儀をした。その仕草が丁寧で、美月らしい。</p>
-<p>「どういたしまして。また分からないことがあったら言って。LINEでもいいから」</p>
-<p>「はい。あの、今日教えていただいたPythonのプログラム、後で送っていただけますか？」</p>
-<p>「もちろん。帰ったらすぐ送るよ」</p>
-<p>「それじゃあ、また明日」</p>
-<p>「また明日。お疲れ様でした」</p>
-<p>美月の家を出て、僕は自分の家に向かった。隣の家だから、本当にすぐだ。でも、この短い距離が、今日はやけに寂しく感じる。</p>
-<p>今日は美月の部屋で勉強を教えた。美月の真剣な表情、分からないことを素直に聞いてくれる姿勢、理解した時の嬉しそうな顔。どれも印象に残っている。</p>
-<p>それに、美月の部屋にいると、なんだか特別な感じがした。美月のプライベートな空間に入れてもらえたような。本棚に並んだ本、机の上のペン立て、窓から入る光。全てが美月らしくて、温かかった。</p>
-<p>部屋に戻って、僕はThinkPadを開いた。約束通り、美月にPythonのプログラムを送る。それから、明日の部活見学のために、初心者向けの課題を準備し始めた。</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># 美月さん向け：花の模様を描くプログラム</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">turtle</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">draw_flower</span><span class="p">(</span><span class="n">petals</span><span class="p">,</span> <span class="n">radius</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;petals: 花びらの数、radius: 花びらの半径&quot;&quot;&quot;</span>
-    <span class="n">angle</span> <span class="o">=</span> <span class="mi">360</span> <span class="o">/</span> <span class="n">petals</span>
-
-    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">petals</span><span class="p">):</span>
-        <span class="c1"># 一つの花びらを描く</span>
-        <span class="n">turtle</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="n">radius</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span>
-        <span class="n">turtle</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">120</span><span class="p">)</span>
-        <span class="n">turtle</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="n">radius</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span>
-        <span class="n">turtle</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">120</span><span class="p">)</span>
-
-        <span class="c1"># 次の花びらの位置へ</span>
-        <span class="n">turtle</span><span class="o">.</span><span class="n">right</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span>
-
-<span class="c1"># 使い方</span>
-<span class="n">turtle</span><span class="o">.</span><span class="n">speed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">turtle</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="s1">&#39;pink&#39;</span><span class="p">)</span>
-<span class="n">draw_flower</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
-<span class="n">turtle</span><span class="o">.</span><span class="n">done</span><span class="p">()</span>
+<p>「所有権が移動すると、元の変数は使えなくなる」</p>
+<p>「なるほど。だから安全なんですね」</p>
+<p>「借用という仕組みもある」</p>
+<div class="highlight"><pre><span></span><code><span class="k">fn</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">String</span><span class="p">::</span><span class="n">from</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">s1</span><span class="p">;</span><span class="w">  </span><span class="c1">// 借用</span>
+<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;{}, {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">s1</span><span class="p">,</span><span class="w"> </span><span class="n">s2</span><span class="p">);</span><span class="w">  </span><span class="c1">// OK</span>
+<span class="p">}</span>
 </code></pre></div>
-<p>コメントを丁寧に書きながら、美月が理解しやすいように工夫する。プログラミングの楽しさを伝えたい。</p>
-<p>美月がプログラミング部に入ってくれることも嬉しい。これからもっと一緒にいる時間が増える。でも、それ以上に、美月が僕のことを頼りにしてくれていることが嬉しかった。幼馴染として、先輩として、美月の力になりたい。</p>
-<p>窓の外を見ると、美月の部屋の明かりが見えた。きっと今頃、今日習った三角関数の復習をしているのだろう。真面目な美月のことだから、きちんとノートをまとめ直しているに違いない。</p>
-<p>明日から、美月もプログラミング部の仲間だ。どんなことを一緒にできるか、今から楽しみだった。でもそれと同時に、少し緊張もしている。美月にとって、プログラミング部が楽しい場所になるように、僕も頑張らなければ。</p>
-<p>LINEの通知が鳴った。美月からだった。</p>
-<p>「プログラム、ありがとうございます！早速動かしてみました。とてもきれいです！」</p>
-<p>そのメッセージを見て、僕は思わず笑顔になった。</p>
+<p>「参照なら元の変数も使える」</p>
+<p>「JavaScriptの参照とは違うんですね」</p>
+<p>「うん。もっと厳密。可変参照は同時に一つだけとか」</p>
+<p>説明しながら、美月の理解の速さに感心する。概念を掴むのが早い。</p>
+<p>「実際にコード書いてみる？」</p>
+<p>「はい」</p>
+<p>美月がVSCodeを開いて、簡単なプログラムを書き始めた。</p>
+<div class="highlight"><pre><span></span><code><span class="k">fn</span><span class="w"> </span><span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="kt">str</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">String</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="fm">format!</span><span class="p">(</span><span class="s">&quot;Hello, {}!&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">fn</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;美月&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">greet</span><span class="p">(</span><span class="n">name</span><span class="p">);</span>
+<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">message</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>「お、いいね。文字列スライスも理解してる」</p>
+<p>「&amp;strとStringの違い、調べておきました」</p>
+<p>美月の予習の成果に驚く。自主的に学習を進めている。</p>
+<p>「じゃあ、次はエラーハンドリング」</p>
+<p>「Result型ですね」</p>
+<p>「そう。Rustらしい部分の一つ」</p>
+<div class="highlight"><pre><span></span><code><span class="k">fn</span><span class="w"> </span><span class="nf">parse_number</span><span class="p">(</span><span class="n">s</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="kt">str</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Result</span><span class="o">&lt;</span><span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="p">::</span><span class="n">num</span><span class="p">::</span><span class="n">ParseIntError</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">s</span><span class="p">.</span><span class="n">parse</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="k">fn</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">match</span><span class="w"> </span><span class="n">parse_number</span><span class="p">(</span><span class="s">&quot;42&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nb">Ok</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;Parsed: {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">),</span>
+<span class="w">        </span><span class="nb">Err</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;Error: {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">),</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>「エラーも値として扱う」</p>
+<p>「例外じゃなくて、明示的に」</p>
+<p>「そう。だからエラー処理を忘れにくい」</p>
+<p>二時間ほど、Rustの基礎を一緒に学んだ。美月は時々鋭い質問をしてきて、僕も改めて理解を深めることができた。</p>
+<p>「ライフタイムはまだ難しいです」</p>
+<p>「最初はみんなそう。使ってるうちに分かってくる」</p>
+<p>「拓海先輩も苦労しました？」</p>
+<p>「めちゃくちゃ苦労した。コンパイラと格闘の日々」</p>
+<p>美月が笑った。</p>
+<p>「でも、今は使いこなしてる」</p>
+<p>「慣れだよ。美月ならすぐマスターできる」</p>
+<p>図書館を出ると、もう夕方だった。</p>
+<p>「Rust、面白いですね」</p>
+<p>「でしょ？安全性と性能を両立してる」</p>
+<p>「パーサーの実装も見てみたいです」</p>
+<p>「今度、詳しく説明するよ」</p>
+<p>一緒に帰りながら、技術的な話が尽きない。</p>
+<p>「あ、そういえば」</p>
+<p>美月が思い出したように言った。</p>
+<p>「今週末、また勉強会しませんか？」</p>
+<p>「いいよ。どこで？」</p>
+<p>「うちでもいいですし、どこかカフェでも」</p>
+<p>「美月の家がいいな。集中できるし」</p>
+<p>「分かりました」</p>
+<p>美月の嬉しそうな表情を見て、僕も嬉しくなった。</p>
+<p>家に帰ってから、今日の勉強会を振り返る。美月と一緒に学ぶ時間は、ただの勉強以上の意味がある気がした。</p>
+<p>お互いに教え合い、理解を深め合う。そんな関係が、とても心地よい。</p>
+<p>週末の勉強会では、実際にパーサーのコードを一緒に書いてみよう。美月の成長速度なら、きっとすぐに理解してくれるはずだ。</p>
+<p>GitHubを見ると、美月が今日学んだ内容をまとめたリポジトリを作っていた。丁寧にコメントされたサンプルコードと、理解のポイントがまとめられている。</p>
+<p>こういう几帳面さも、美月の魅力の一つだ。技術に対して真摯で、常に成長しようとしている。</p>
+<p>そんな美月と一緒に文化祭の展示を作れることが、改めて楽しみになった。</p>
 
 
 
