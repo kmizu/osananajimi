@@ -1540,98 +1540,60 @@
   
 
 
-<h1 id="1">第1話　新しい季節<a class="headerlink" href="#1" title="Permanent link">&para;</a></h1>
-<p>午前五時四十三分。僕はアラームより早く目が覚めた。
-　枕元のノートパソコンの画面がまだ点いている。昨夜は結局、エラーメッセージ改善ツールのコードを書いていて、気がついたら朝だった。</p>
-<p>画面には、Rustで書いたパーサーのコードが表示されている。プログラムの構文エラーを検出して、初心者にも分かりやすい日本語で説明するツール。去年IOIで銅メダルを取って以来、競技プログラミングよりも、こういう実用的なツールを作ることに興味が移っていた。</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// エラー位置を特定して、分かりやすいメッセージを生成</span>
-<span class="k">match</span><span class="w"> </span><span class="n">parser</span><span class="p">.</span><span class="n">parse</span><span class="p">(</span><span class="o">&amp;</span><span class="n">input</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nb">Err</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">suggestion</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">suggest_fix</span><span class="p">(</span><span class="o">&amp;</span><span class="n">e</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">input</span><span class="p">);</span>
-<span class="w">        </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;エラー: {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">user_friendly_message</span><span class="p">());</span>
-<span class="w">        </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;修正案: {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">suggestion</span><span class="p">);</span>
+<h1 id="1">第1話 新しい季節のアルゴリズム<a class="headerlink" href="#1" title="Permanent link">&para;</a></h1>
+<p>午前五時四十三分。自作の目覚ましアプリが鳴るより早く、僕は覚醒した。昨夜から続いていたデバッグ作業の興奮が、まだ頭の中に残っている。枕元のノートパソコンには、Rustで書かれたパーサーのコードが、静かにその姿を映していた。国際情報オリンピック（IOI）で銅メダルを獲得して以来、僕の興味は競技プログラミングの純粋な速さから、言語処理系の美しい論理へと移り変わっていた。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// エラー位置を特定し、より親切な修正案を生成する</span>
+<span class="k">fn</span><span class="w"> </span><span class="nf">suggest_fix</span><span class="p">(</span><span class="n">error</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="nc">ParseError</span><span class="p">,</span><span class="w"> </span><span class="n">context</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="nc">CodeContext</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Option</span><span class="o">&lt;</span><span class="nb">String</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">match</span><span class="w"> </span><span class="n">error</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ParseError</span><span class="p">::</span><span class="n">UnexpectedToken</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">found</span><span class="p">,</span><span class="w"> </span><span class="n">expected</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// ユーザーの意図を推測し、具体的な修正案を提示</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">expected</span><span class="p">.</span><span class="n">contains</span><span class="p">(</span><span class="o">&amp;</span><span class="s">&quot;Identifier&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">found</span><span class="p">.</span><span class="n">is_keyword</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nb">Some</span><span class="p">(</span><span class="fm">format!</span><span class="p">(</span><span class="s">&quot;もしかして：`{}`という変数名を使おうとしましたか？&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">found</span><span class="p">.</span><span class="n">to_string</span><span class="p">()))</span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nb">None</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="nb">None</span><span class="p">,</span>
 <span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="nb">Ok</span><span class="p">(</span><span class="n">ast</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">process_ast</span><span class="p">(</span><span class="n">ast</span><span class="p">),</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>コードを眺めていると、新しいアイデアが浮かんでくる。でも、今日から新学期だ。そろそろ準備をしないと。</p>
+<p>このコードは、プログラミング初心者が直面する不可解なエラーメッセージを、人間が理解できる言葉に翻訳するためのツールだ。単なるエラー報告ではなく、解決策まで提示する。そのロジックの美しさに、僕は一人悦に入っていた。</p>
 <p>「おはよう、拓海先輩」</p>
-<p>家を出ると、隣の家の扉も同時に開いた。桜井美月が、真新しい高校の制服に身を包んで立っている。</p>
-<p>僕の思考が、一瞬で停止した。</p>
-<p>紺色のブレザー、白いブラウス、チェックのスカート。制服自体は中学時代とほとんど変わらない。でも、着ている人が――美月が、どこか大人びて見える。</p>
+<p>玄関のドアを開けると、隣の家の扉も同じタイミングで開いた。そこに立っていたのは、真新しい高校の制服に身を包んだ、桜井美月だった。</p>
+<p>僕の思考は、一瞬にしてフリーズした。</p>
+<p>紺色のブレザーに、白いブラウス、そしてチェック柄のスカート。中学時代と大差ないはずの制服が、彼女が纏うと全く別の輝きを放って見えた。</p>
 <p>「あ、ああ。おはよう、美月」</p>
-<p>僕は慌てて返事をした。なぜこんなに動揺しているんだろう。十年以上も一緒に過ごしてきた幼馴染なのに。</p>
-<p>「今日から高校生です。なんだか実感が湧かなくて」</p>
-<p>美月は少し緊張したような笑顔を浮かべた。</p>
+<p>十年以上の付き合いになる幼馴染に対して、僕はひどく動揺していた。</p>
+<p>「今日から高校生です。まだ、なんだか実感が湧かなくて」</p>
+<p>美月は少しはにかみながら言った。その笑顔に、僕の心臓が不規則なリズムを刻む。</p>
 <p>「緊張してる？」</p>
-<p>「少しだけ。でも、拓海先輩がいるから大丈夫です」</p>
-<p>美月の言葉に、僕の胸がドキッとした。「拓海先輩」――いつから僕をそう呼ぶようになったんだろう。</p>
-<p>「そんなに堅くならなくても……」</p>
-<p>「でも、もう高校生ですから」</p>
-<p>美月は真面目な顔でそう言った。</p>
-<p>学校までの道のりを歩きながら、美月が話しかけてきた。</p>
-<p>「そういえば、昨日GitHub見てたら、拓海先輩のリポジトリ見つけちゃいました」</p>
+<p>「少しだけ。でも、拓海先輩が同じ学校にいるから安心です」</p>
+<p>「拓海先輩」――その響きに、僕たちの関係が新しいフェーズに入ったことを実感させられた。</p>
+<p>学校までの道のり、美月が僕の少し前を歩く。その背中を見つめながら、僕は昨夜のコードのことを考えていた。美月がプログラミングに興味を持っていることは知っていた。中学時代、僕が何気なく教えたPythonの初歩を、彼女は驚くべき速さで吸収していった。</p>
+<p>「そういえば、拓海先輩のGitHub、見つけちゃいました」</p>
 <p>「え？」</p>
-<p>まさか美月が僕のGitHubを見ているなんて。</p>
-<p>「error-message-improverっていうプロジェクト。すごく面白そうでした」</p>
-<p>「あれを見たの？でも、あれはまだ開発中で……」</p>
-<p>「エラーメッセージを日本語で分かりやすく表示するツールですよね。初心者には本当に助かると思います」</p>
-<p>美月の理解の早さに驚いた。</p>
-<p>「美月、プログラミングやってるの？」</p>
-<p>「はい。中学から独学で。Python とJavaScriptが中心ですけど」</p>
-<p>その事実に、僕はさらに驚いた。美月がプログラミングをやっていたなんて、全然知らなかった。</p>
-<p>「AtCoderもやってるんです。まだ水色ですけど」</p>
-<p>「水色って、レート1200前後？それ、相当すごいよ」</p>
-<p>「拓海先輩みたいにIOIメダリストには程遠いです」</p>
-<p>美月が僕のIOIの実績を知っていることにも驚いた。去年のことだけど、学校ではあまり話題にしていなかったはずなのに。</p>
-<p>「あの、実は相談があるんです」</p>
-<p>「何？」</p>
-<p>「プログラミング部に入ろうと思ってるんですけど、どうでしょうか」</p>
-<p>美月の言葉に、僕の心臓が跳ねた。</p>
-<p>「もちろん歓迎だよ。でも、文芸部じゃなくて？」</p>
-<p>「文芸部にも入ります。でも、プログラミングも続けたくて。兼部って可能ですか？」</p>
-<p>「多分大丈夫だと思う。山田先輩に聞いてみるよ」</p>
-<p>「ありがとうございます」</p>
-<p>美月の嬉しそうな顔を見て、僕の胸が温かくなった。</p>
-<p>学校に着くと、昇降口で美月と別れた。</p>
-<p>「じゃあ、ここで」</p>
-<p>「はい。あの、プログラミング部のこと、よろしくお願いします」</p>
-<p>美月は深々とお辞儀をして、一年生の校舎へ向かっていった。</p>
-<p>教室に向かいながら、僕は考えていた。美月がプログラミングをやっていたなんて。しかもAtCoder水色レベル。それは決して簡単なことじゃない。アルゴリズムの基礎がしっかりしていないと到達できないレベルだ。</p>
-<p>「おー、拓海」</p>
-<p>教室に入ると、同じクラスの田中慎也が声をかけてきた。</p>
-<p>「おはよう、慎也」</p>
-<p>「相変わらず桜井さんと一緒か」</p>
-<p>「幼馴染だから」</p>
-<p>「へー、可愛くなったよな、桜井さん」</p>
-<p>慎也の言葉に、僕は複雑な気持ちになった。確かに美月は可愛くなった。でも、それ以上に、彼女が技術的なバックグラウンドを持っていることに興味を引かれている自分がいた。</p>
-<p>授業が始まっても、美月のことが頭から離れなかった。AtCoder水色ということは、基本的なデータ構造やアルゴリズムは理解している。動的計画法やグラフ理論の基礎も分かっているはずだ。</p>
-<p>そんな美月と一緒にプログラミング部で活動できる。その事実が、なぜかとても嬉しかった。</p>
-<p>昼休み、僕はプログラミング部の部室に向かった。山田先輩に美月の入部について相談するためだ。</p>
-<p>「へー、桜井さんがプログラミング部に？」</p>
-<p>山田先輩は興味深そうに言った。</p>
-<p>「AtCoder水色らしいです」</p>
-<p>「それはすごいな。即戦力じゃないか」</p>
-<p>「兼部でも大丈夫ですか？」</p>
-<p>「問題ないよ。むしろ歓迎だ」</p>
-<p>山田先輩の快諾を得て、僕はホッとした。</p>
-<p>放課後、僕は一年生の教室に美月を迎えに行った。</p>
-<p>「美月」</p>
-<p>「あ、拓海先輩」</p>
-<p>「部長のOKもらえたよ。兼部も問題ないって」</p>
-<p>「本当ですか！ありがとうございます」</p>
-<p>美月の喜ぶ顔を見て、僕も嬉しくなった。</p>
-<p>「じゃあ、部室に案内するね」</p>
-<p>「はい」</p>
-<p>部室への道すがら、美月が聞いてきた。</p>
-<p>「ところで、あのツールは何の言語で書いてるんですか？」</p>
-<p>「Rustだよ。パーサーの実装にはpestを使ってる」</p>
-<p>「Rust！勉強してみたかったんです」</p>
-<p>「じゃあ、今度教えるよ。メモリ安全性とか、最初は難しいけど」</p>
-<p>「ぜひお願いします」</p>
-<p>技術的な話で盛り上がりながら歩いていると、あっという間に部室に着いた。</p>
-<p>これから美月と一緒に部活動ができる。同じ技術的な興味を共有できる。そのことが、なぜかとても特別なことのように感じられた。</p>
-<p>春の新しい季節。それは、僕にとっても新しい何かが始まる予感がした。</p>
+<p>まさか、僕のコードの隠れ家を彼女が知っているとは。</p>
+<p>「"error-message-improver"、すごく面白いプロジェクトですね。特に、エラーの文脈を解析して、修正案を提案する部分。感動しました」</p>
+<p>美月の言葉に、僕は驚きを隠せなかった。彼女は、僕のコードの核心部分を正確に理解していた。</p>
+<p>「美月、プログラミング、続けてたんだ」</p>
+<p>「はい。AtCoderにも挑戦してるんです。まだ水色ですけど」</p>
+<p>水色。レート1200以上。それは、アルゴリズムの基礎を完全に理解していなければ到達できない領域だ。</p>
+<p>「実は、相談があるんです。プログラミング部に入ろうと思ってるんですけど、どう思いますか？」</p>
+<p>美月のその一言で、僕の心は決まった。</p>
+<p>「もちろん、大歓迎だよ」</p>
+<p>「本当ですか！ 文芸部と兼部って、できますかね？」</p>
+<p>「部長に話してみる。きっと大丈夫だよ」</p>
+<p>美月の嬉しそうな笑顔を見て、僕の胸は温かいもので満たされた。</p>
+<p>放課後、僕はプログラミング部の部室のドアを叩いた。部長の山田先輩に美月の入部を相談すると、彼は二つ返事で承諾してくれた。</p>
+<p>「AtCoder水色だって？ それは即戦力だ。ぜひ入部してほしい」</p>
+<p>僕はその足で一年生の教室へ向かい、美月に結果を伝えた。</p>
+<p>「本当ですか！ ありがとうございます！」</p>
+<p>満面の笑みを浮かべる美月を連れて、部室へと向かう。</p>
+<p>「ところで先輩、あのツール、言語は何で書いてるんですか？」</p>
+<p>「Rustだよ。メモリ安全性が高くて、パフォーマンスもいい」</p>
+<p>「Rust！ 私も勉強してみたいです。所有権の概念が面白そうで」</p>
+<p>技術的な会話が、こんなにも心地よいものだとは。美月となら、もっと深いレベルで語り合える。そんな予感がした。</p>
+<p>部室の扉を開けると、新しい季節の始まりを告げる風が、僕たちの間を吹き抜けていった。それは、僕と美月の新しい物語が、今、まさにコンパイルされようとしている合図のようだった。</p>
 
 
 

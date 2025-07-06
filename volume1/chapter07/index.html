@@ -1540,97 +1540,44 @@
   
 
 
-<h1 id="7">第7話　勉強会<a class="headerlink" href="#7" title="Permanent link">&para;</a></h1>
-<p>水曜日の放課後、僕は美月と図書館にいた。文化祭の展示開発を本格的に始める前に、技術的な部分を整理しておきたかった。</p>
-<p>「今日はRustの基礎から？」</p>
-<p>「うん。所有権の概念が分かれば、あとは応用だから」</p>
-<p>僕たちは奥の静かな席に座って、ノートPCを開いた。</p>
-<p>「まず、Rustが解決したい問題から説明するね」</p>
-<p>ホワイトボードに図を描きながら説明を始める。</p>
-<p>「メモリ安全性の問題。CやC++では、メモリの解放忘れとか、二重解放とか」</p>
-<p>「セグフォの原因ですね」</p>
-<p>「そう。Rustはコンパイル時にこれらを防ぐ」</p>
-<p>美月は真剣にメモを取っている。</p>
+<h1 id="7">第7話 図書館の静寂、二人の対話<a class="headerlink" href="#7" title="Permanent link">&para;</a></h1>
+<p>水曜日の放課後、僕と美月は図書館の奥深く、情報科学の書架に囲まれた一角にいた。文化祭のプロジェクトを成功させるためには、僕たちの技術的な基盤を、さらに強固なものにしておく必要があった。</p>
+<p>「今日は、Rustの核心部分、所有権とライフタイムについて、もう一度深く掘り下げてみよう」</p>
+<p>僕はホワイトボードに、メモリ管理の図を描きながら説明を始めた。</p>
+<p>「C++のような言語では、開発者が手動でメモリを管理する必要がある。これが、バグの温床になりやすい」</p>
+<p>「<code>new</code>と<code>delete</code>の対応が取れていなかったり、ダングリングポインタが発生したり…」美月は的確に補足する。</p>
+<p>「その通り。でもRustは、所有権というユニークなシステムで、その問題をコンパイル時に解決するんだ」</p>
+<p>僕は、所有権が移動するシンプルなコード例を示した。</p>
 <div class="highlight"><pre><span></span><code><span class="k">fn</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">String</span><span class="p">::</span><span class="n">from</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">);</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s1</span><span class="p">;</span><span class="w">  </span><span class="c1">// 所有権がs2に移動</span>
-<span class="w">    </span><span class="c1">// println!(&quot;{}&quot;, s1);  // コンパイルエラー</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>「所有権が移動すると、元の変数は使えなくなる」</p>
-<p>「なるほど。だから安全なんですね」</p>
-<p>「借用という仕組みもある」</p>
-<div class="highlight"><pre><span></span><code><span class="k">fn</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">String</span><span class="p">::</span><span class="n">from</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">);</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">s1</span><span class="p">;</span><span class="w">  </span><span class="c1">// 借用</span>
-<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;{}, {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">s1</span><span class="p">,</span><span class="w"> </span><span class="n">s2</span><span class="p">);</span><span class="w">  </span><span class="c1">// OK</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>「参照なら元の変数も使える」</p>
-<p>「JavaScriptの参照とは違うんですね」</p>
-<p>「うん。もっと厳密。可変参照は同時に一つだけとか」</p>
-<p>説明しながら、美月の理解の速さに感心する。概念を掴むのが早い。</p>
-<p>「実際にコード書いてみる？」</p>
-<p>「はい」</p>
-<p>美月がVSCodeを開いて、簡単なプログラムを書き始めた。</p>
-<div class="highlight"><pre><span></span><code><span class="k">fn</span><span class="w"> </span><span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="kt">str</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">String</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="fm">format!</span><span class="p">(</span><span class="s">&quot;Hello, {}!&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">)</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s1</span><span class="p">;</span><span class="w"> </span><span class="c1">// s1の所有権がs2にムーブする</span>
 
-<span class="k">fn</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;美月&quot;</span><span class="p">;</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">greet</span><span class="p">(</span><span class="n">name</span><span class="p">);</span>
-<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">message</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// println!(&quot;{}&quot;, s1); // ここでコンパイルエラー！s1は既に無効</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>「お、いいね。文字列スライスも理解してる」</p>
-<p>「&amp;strとStringの違い、調べておきました」</p>
-<p>美月の予習の成果に驚く。自主的に学習を進めている。</p>
-<p>「じゃあ、次はエラーハンドリング」</p>
-<p>「Result型ですね」</p>
-<p>「そう。Rustらしい部分の一つ」</p>
-<div class="highlight"><pre><span></span><code><span class="k">fn</span><span class="w"> </span><span class="nf">parse_number</span><span class="p">(</span><span class="n">s</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="kt">str</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Result</span><span class="o">&lt;</span><span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="p">::</span><span class="n">num</span><span class="p">::</span><span class="n">ParseIntError</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">s</span><span class="p">.</span><span class="n">parse</span><span class="p">()</span>
-<span class="p">}</span>
-
-<span class="k">fn</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">match</span><span class="w"> </span><span class="n">parse_number</span><span class="p">(</span><span class="s">&quot;42&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nb">Ok</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;Parsed: {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">),</span>
-<span class="w">        </span><span class="nb">Err</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;Error: {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">),</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
+<p>「なるほど…。変数がスコープを抜ける時にリソースが解放されるRAIIの原則を、もっと厳格にした感じですね」</p>
+<p>「まさにその通りだ。そして、所有権を移動させずに値を扱いたい時に使うのが『借用』だ」</p>
+<div class="highlight"><pre><span></span><code><span class="k">fn</span><span class="w"> </span><span class="nf">calculate_length</span><span class="p">(</span><span class="n">s</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="nb">String</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="kt">usize</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// sはStringへの参照を借用する</span>
+<span class="w">    </span><span class="n">s</span><span class="p">.</span><span class="n">len</span><span class="p">()</span>
+<span class="p">}</span><span class="w"> </span><span class="c1">// sはスコープを抜けるが、所有権は持っていないので何も解放されない</span>
 </code></pre></div>
-<p>「エラーも値として扱う」</p>
-<p>「例外じゃなくて、明示的に」</p>
-<p>「そう。だからエラー処理を忘れにくい」</p>
-<p>二時間ほど、Rustの基礎を一緒に学んだ。美月は時々鋭い質問をしてきて、僕も改めて理解を深めることができた。</p>
-<p>「ライフタイムはまだ難しいです」</p>
-<p>「最初はみんなそう。使ってるうちに分かってくる」</p>
-<p>「拓海先輩も苦労しました？」</p>
-<p>「めちゃくちゃ苦労した。コンパイラと格闘の日々」</p>
-<p>美月が笑った。</p>
-<p>「でも、今は使いこなしてる」</p>
-<p>「慣れだよ。美月ならすぐマスターできる」</p>
-<p>図書館を出ると、もう夕方だった。</p>
-<p>「Rust、面白いですね」</p>
-<p>「でしょ？安全性と性能を両立してる」</p>
-<p>「パーサーの実装も見てみたいです」</p>
-<p>「今度、詳しく説明するよ」</p>
-<p>一緒に帰りながら、技術的な話が尽きない。</p>
-<p>「あ、そういえば」</p>
-<p>美月が思い出したように言った。</p>
-<p>「今週末、また勉強会しませんか？」</p>
-<p>「いいよ。どこで？」</p>
-<p>「うちでもいいですし、どこかカフェでも」</p>
-<p>「美月の家がいいな。集中できるし」</p>
-<p>「分かりました」</p>
-<p>美月の嬉しそうな表情を見て、僕も嬉しくなった。</p>
-<p>家に帰ってから、今日の勉強会を振り返る。美月と一緒に学ぶ時間は、ただの勉強以上の意味がある気がした。</p>
-<p>お互いに教え合い、理解を深め合う。そんな関係が、とても心地よい。</p>
-<p>週末の勉強会では、実際にパーサーのコードを一緒に書いてみよう。美月の成長速度なら、きっとすぐに理解してくれるはずだ。</p>
-<p>GitHubを見ると、美月が今日学んだ内容をまとめたリポジトリを作っていた。丁寧にコメントされたサンプルコードと、理解のポイントがまとめられている。</p>
-<p>こういう几帳面さも、美月の魅力の一つだ。技術に対して真摯で、常に成長しようとしている。</p>
-<p>そんな美月と一緒に文化祭の展示を作れることが、改めて楽しみになった。</p>
+<p>「参照は、その名の通りデータを『借りる』だけ。だから、元のデータの所有権に影響を与えない。ただし、一つのデータに対して、可変な参照（<code>&amp;mut</code>）は一つしか存在できない。これにより、データ競合をコンパイル時に防ぐことができる」</p>
+<p>美月は、僕の説明を熱心に聞きながら、時折、鋭い質問を投げかけてくる。彼女の質問は、いつも本質を突いていて、僕自身の理解をさらに深めさせてくれた。</p>
+<p>「このライフタイム指定子<code>'a</code>というのは、参照がどのスコープで有効であるかをコンパイラに教えるためのもの、という理解で合っていますか？」</p>
+<p>「完璧だ。最初は難しく感じるかもしれないけど、コンパイラとの対話だと思えばいい。どうすれば安全なコードになるか、コンパイラが教えてくれるんだ」</p>
+<p>二時間ほどの集中した勉強会を終え、僕たちは図書館を後にした。</p>
+<p>「Rust、本当に奥が深いですね。でも、その分、コンパイラに守られているという安心感がすごい」</p>
+<p>「だろ？ 一度この世界を知ってしまうと、もう他の言語には戻れないかもしれない」</p>
+<p>帰り道、僕たちの会話は、自然とプロジェクトの未来へと向かっていた。</p>
+<p>「このエラー解析ツール、将来的にはLSP（Language Server Protocol）に対応させて、VSCodeの拡張機能として提供できたら素敵ですね」</p>
+<p>「最高のアイデアだ！ リアルタイムで、エディタ上に直接、僕たちのツールからのアドバイスを表示できる」</p>
+<p>技術的な夢が、次から次へと湧き上がってくる。美月と話していると、僕の創造力は無限に広がっていくようだった。</p>
+<p>「今週末、また勉強会を開きませんか？」美月が提案した。「今度は、パーサーの実装を、もっと深く」</p>
+<p>「もちろん。美月の家で、また集中してやろう」</p>
+<p>「はい！」</p>
+<p>その嬉しそうな返事を聞けるだけで、僕の心は満たされた。</p>
+<p>家に帰り、GitHubを開くと、美月が今日の勉強会の内容をまとめたMarkdownファイルを作成し、リポジトリにプッシュしていた。サンプルコード、重要な概念の解説、そして彼女自身の考察。そのドキュメントは、誰が見ても理解できるように、丁寧に構成されていた。</p>
+<p>技術を深く理解し、それを他者に分かりやすく伝える能力。美月は、その両方を高いレベルで兼ね備えている。彼女は、僕にとって最高の技術的パートナーであり、そして、かけがえのない存在になりつつあった。</p>
 
 
 
